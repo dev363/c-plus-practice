@@ -5,34 +5,43 @@ class Animal
 {
     int age = 20;
 
+protected:
+    int length = 30;
+
 public:
-    void getAnimalAge()
+    int height = 40;
+    int getAnimalPrivate()
     {
-        cout << "Animal Age: " << age << endl;
+        return age;
     }
 };
 
 class Dog : private Animal
 {
-    int age = 12;
-
 public:
-    void getDogAge()
+    int getAnimalPublic()
     {
-        cout << "Dog Age: " << age << endl;
+        return height;
     }
-
-    void getAnimalAgeWithChildClass()
+    int getAnimalProtected()
     {
-        getAnimalAge();
+        return length;
+    }
+    int getAnimalPrivate2() // Error age private
+    {
+        return getAnimalPrivate();
     }
 };
 
 int main()
 {
     Dog c1;
-    // c1.getAnimalAge();   // Not able to access | Now it private member of Dog
-    c1.getAnimalAgeWithChildClass(); // You could access this like this 
-    c1.getDogAge();
+    // age, length, height all are now private not access outside class
+    // cout << "Public - Animal Height:- " << c1.getAnimalPublic() << endl;
+    // cout << "Protected - Animal length:- " << c1.getAnimalProtected() << endl;
+    cout << "Private - Animal Height:- " << c1.getAnimalPublic() << endl;
+    cout << "Protected - Animal length:- " << c1.getAnimalProtected() << endl;
+    cout << "Public - Animal Age:- " << c1.getAnimalPrivate2() << endl;
+
     return 0;
 }
