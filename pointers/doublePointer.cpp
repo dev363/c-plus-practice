@@ -33,10 +33,10 @@ int main()
 
     cout << "\n---------**ptr2------------\n";
 
-    cout << "&ptr2 value: " << &ptr2 << endl;
+    cout << "&ptr value: " << &ptr << endl; // &ptr == ptr2
     cout << "ptr2 value: " << ptr2 << endl;
-    cout << "&ptr value: " << &ptr << endl;
-    cout << "*ptr2 value: " << *ptr2 << endl;
-    cout << "**ptr2 value: " << **ptr2 << endl;
+    cout << "&ptr2 value: " << &ptr2 << endl;
+    cout << "*ptr2 value: " << *ptr2 << "|" << &i << endl; //*ptr2 == &i == ptr
+    cout << "**ptr2 value: " << **ptr2 << endl;            //**ptr2 == i
     return 0;
 }
